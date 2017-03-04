@@ -110,9 +110,7 @@ export default class VideoPlayer extends Component {
         this.onPlayPress = this.onPlayPress.bind(this);
         this.onMutePress = this.onMutePress.bind(this);
         this.showControls = this.showControls.bind(this);
-        this.onToggleFullScreen = this.props.onToggleFullScreen
-            ? this.props.onToggleFullScreen.bind(this)
-            : this.onToggleFullScreen.bind(this);
+        this.onToggleFullScreen = this.onToggleFullScreen.bind(this);
         this.onSeekBarLayout = this.onSeekBarLayout.bind(this);
         this.onSeekGrant = this.onSeekGrant.bind(this);
         this.onSeekRelease = this.onSeekRelease.bind(this);
@@ -194,7 +192,12 @@ export default class VideoPlayer extends Component {
     }
 
     onToggleFullScreen() {
-        this.player.presentFullscreenPlayer();
+        if (this.props.onToggleFullScreen) {
+            this.props.onToggleFullScreen();
+        }else{
+            this.player.presentFullscreenPlayer();
+        }
+
     }
 
     onSeekBarLayout({nativeEvent}) {
