@@ -255,8 +255,8 @@ export default class VideoPlayer extends Component {
         });
 
         this.player.seek(progress * this.state.duration);
-        if(this.props.onSeek){
-            this.props.onSeek(progress * this.state.duration);
+        if(this.props.onBarSeek){
+            this.props.onBarSeek(progress * this.state.duration);
         }
     }
 
@@ -500,7 +500,7 @@ VideoPlayer.propTypes = {
     onProgress: PropTypes.func,
     onLoad: PropTypes.func,
     onToggleFullScreen: PropTypes.func,
-    onSeek: PropTypes.func,
+    onBarSeek: PropTypes.func,
 };
 
 VideoPlayer.defaultProps = {
