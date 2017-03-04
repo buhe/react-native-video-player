@@ -130,6 +130,10 @@ export default class VideoPlayer extends Component {
         });
     }
 
+    seek(time){
+        this.player.seek(time);
+    }
+
     onStartPress() {
         this.setState({
             isPlaying: true,
