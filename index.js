@@ -130,7 +130,7 @@ export default class VideoPlayer extends Component {
         });
     }
 
-    seek(time){
+    seek(time) {
         this.player.seek(time);
     }
 
@@ -198,7 +198,7 @@ export default class VideoPlayer extends Component {
     onToggleFullScreen() {
         if (this.props.onToggleFullScreen) {
             this.props.onToggleFullScreen();
-        }else{
+        } else {
             this.player.presentFullscreenPlayer();
         }
 
@@ -255,7 +255,7 @@ export default class VideoPlayer extends Component {
         });
 
         this.player.seek(progress * this.state.duration);
-        if(this.props.onBarSeek){
+        if (this.props.onBarSeek) {
             this.props.onBarSeek(progress * this.state.duration);
         }
     }
@@ -382,15 +382,14 @@ export default class VideoPlayer extends Component {
                             />
                         </TouchableOpacity>
                     )}
-                {(Platform.OS === 'android') ? null : (
-                        <TouchableOpacity onPress={this.onToggleFullScreen} style={customStyles.controlButton}>
-                            <Icon
-                                style={[styles.extraControl, customStyles.controlIcon]}
-                                name="fullscreen"
-                                size={32}
-                            />
-                        </TouchableOpacity>
-                    )}
+
+                <TouchableOpacity onPress={this.onToggleFullScreen} style={customStyles.controlButton}>
+                    <Icon
+                        style={[styles.extraControl, customStyles.controlIcon]}
+                        name="fullscreen"
+                        size={32}
+                    />
+                </TouchableOpacity>
             </View>
         );
     }
